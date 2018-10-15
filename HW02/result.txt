@@ -1,0 +1,8 @@
+continous mode!
+dataset:  training
+train data_num:  60000
+dataset:  testing
+test data_num:  10000
+acc:  0.6321
+
+
