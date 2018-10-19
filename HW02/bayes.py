@@ -11,6 +11,7 @@ import sys
 import read_data
 import math
 import numpy as np
+import time
 
 from scipy.stats import multivariate_normal as mvn
 
@@ -110,7 +111,8 @@ class ob_name:
 			if Y[i]==P:
 #				print("OK!")
 				correct+=1
-		print("acc: ", correct/len(X))
+		print("accuracy(%): ", 100*correct/len(X))
+		""" accuracy(%):  63.2 """
 			
 		
 		pass
@@ -149,11 +151,10 @@ class ob_name:
 		def return_0_9_d(d):
 			for i in range(10):
 #				d[i]=[1 for j in range( 256/(2**self.bit_shift)  )]
-				d[i]=[1 for j in range(32 )]
+				d[i]=[0.00000001 for j in range(32 )]
 			return d
 
 		self.two_d_list_of_d = [  [ return_0_9_d( {}) for ele in range(28)  ] for ele in range(28) ]
-#		input(self.two_d_list_of_d)
 	
 		self.label_count=[0 for i in range(10)]
 #		data_num=1000	
@@ -191,7 +192,8 @@ class ob_name:
 			if t_label==self.predict(t_img)[0]:
 				correct+=1
 #			input()
-		print("accurcy:",correct/data_num)
+		print("accurcy(%):",100*correct/data_num)
+		#70.1%
 		pass
 
 
@@ -203,5 +205,8 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
 
+	start_time=time.time()
 	ob=ob_name()
+	end_time=time.time()
+	print("time consumed: ",start_time-end_time)
 
